@@ -1,0 +1,95 @@
+<!DOCTYPE>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Muestra Oculta parrafos</title>
+
+<script type="text/javascript">
+function muestraOculta(id) {
+  var elemento = document.getElementById('contenidos_'+id);
+  var enlace = document.getElementById('enlace_'+id);
+
+  if(elemento.style.display == "" || elemento.style.display == "block") {
+    elemento.style.display = "none";
+    enlace.innerHTML = 'Mostrar contenidos';
+
+    if(id==1){ elemento.style.backgroundColor = "#43c0ff"; }else
+    if(id==2){ elemento.style.backgroundColor = "#98a015"; }else 
+    if(id==3){ elemento.style.backgroundColor = "#fe2972"; }
+
+  }
+  else {
+    elemento.style.display = "block";
+    enlace.innerHTML = 'Ocultar contenidos';
+  }
+}
+
+</script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+  body{
+    font-family: 'Josefin Sans', sans-serif;
+    background-image: url('https://www.solofondos.com/wp-content/uploads/2017/09/imagenes-4k-wallpaper-paisajes.jpg');
+  }
+
+  p{
+    background-size: auto;
+    color: azure;
+    border: rgba(255, 255, 255, 0.349) 8px ridge;
+    font-size: larger;
+    padding: 1em;
+  }
+
+  a{
+    color:chartreuse;
+  }
+</style>
+</head>
+
+<body>
+
+<p id="contenidos_1">[1] Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+  Sed mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue,
+  commodo nec, commodo ultricies, turpis.
+  Quisque sapien nunc, posuere vitae, rutrum et, luctus at, pede.
+  Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor, pede.
+  Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper
+  quis, faucibus ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing
+  ullamcorper, odio urna consequat arcu, at posuere ante quam non dolor.
+ </p>
+  <a id="enlace_1" href="#" onclick="muestraOculta('1'); return false;">
+    Ocultar contenidos
+  </a>
+
+<br/>
+
+<p id="contenidos_2">[2] Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+  Sed mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue, commodo nec,
+   commodo ultricies, turpis. Quisque sapien nunc, posuere vitae, rutrum et, luctus at, pede.
+   Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor, pede. Nullam sit amet
+   nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus ut, rhoncus non,
+   mi. Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at posuere ante
+   quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.
+ </p>
+<a id="enlace_2" href="#" onclick="muestraOculta('2'); return false;">
+  Ocultar contenidos
+</a>
+
+<br/>
+<p id="contenidos_3">[3] Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis enim vitae
+  rci. Phasellus libero. Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis.
+  Quisque sapien nunc, posuere vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id,
+  aliquam vitae, ultrices porttitor, pede. Nullam sit amet nisl elementum elit convallis malesuada.
+  Phasellus magna sem, semper quis, faucibus ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing
+  ullamcorper, odio urna consequat arcu, at posuere ante quam non dolor. Lorem ipsum dolor sit amet,
+  consectetuer adipiscing elit. Duis scelerisque.
+</p>
+<a id="enlace_3" href="#" onclick="muestraOculta('3'); return false;">
+  Ocultar contenidos
+</a><br><br>
+<blockquote>  <a id="imagen" href="../../../braulio.html"><img src="https://image.flaticon.com/icons/png/512/122/122641.png" width="70" height="70">
+  REGRESAR AL MENÚ DE PRÁCTICAS</a>  </blockquote>
+</body>
+</html>

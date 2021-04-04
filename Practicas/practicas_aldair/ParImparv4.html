@@ -1,0 +1,131 @@
+<!DOCTYPE >
+<head>
+<title>Par/impar, binario o hexadecimal</title>  
+
+</head>  
+<body>
+
+  <h1>Programa que verifica si un n&uacute;mero es par, que lo transforma a binario o lo transforma a hexadecimal</h1>
+  <form >
+     <label >Introduce el numero</label>
+     <input type="text"   id="num" name="numero" value="">
+     <button type="button" onclick="esPar(num.value)">Es par o impar?</button>
+     <button type="button" onclick="agregarBinario(numero.value)"> Convertir a binario </button>
+     <button type="button" onclick="agregarHexa(numero.value)"> Convertir a hexadecimal </button>
+     <button type="button" onclick="limpiar()">Limpiar Todos</button>
+
+  </form>
+
+  <script type="text/javascript">
+
+  ////////////////////////////////////////////////////////////////////////////////////////
+    function limpiar(){
+
+    lista=document.querySelectorAll('p');
+
+    if(lista.length!=0){
+        i=lista.length-1;  // posiciona en el último párrafo creado
+        while(i>-1)
+             lista[i].parentNode.removeChild(lista[i--]);
+    }
+    else alert("No hay parrafos a eliminar");
+  }
+/////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+    function esPar(numero){
+         var resultado = parImpar(numero);
+         parrafo = document.createElement("p");
+         contenido = document.createTextNode("El número "+numero+" es "+resultado);  
+         parrafo.appendChild(contenido);
+         document.body.appendChild(parrafo);
+         document.getElementById("num").value="";
+      }
+
+  function parImpar(numero) {
+        if(numero % 2 == 0)  return "par";
+        else return "impar";
+   }
+////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+function agregarBinario(numero){
+      var bin1 = Bin(numero);
+      parrafo = document.createElement("p");
+      contenido = document.createTextNode("El numero "+numero+" es en binario: "+ bin1);  
+      parrafo.appendChild(contenido);
+      document.body.appendChild(parrafo);
+      document.getElementById("num").value="";
+                          }
+
+function Bin(numero) {
+      if (numero!=0){
+        var bin = "";
+        while(numero > 0){
+          bin = numero%2 + bin;
+          numero = Math.floor(numero/2); }
+          return bin;
+      }
+      else return "0"; 
+                      
+                        } 
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+function agregarHexa(numero){
+                var hexa = Hex(numero);
+                parrafo = document.createElement("p");
+                contenido = document.createTextNode("El numero "+numero+" es en hexadecimal: "+ hexa);  
+                parrafo.appendChild(contenido);
+                document.body.appendChild(parrafo);
+                document.getElementById("num").value="";
+            }
+
+            function Hex(numero){
+                var hex=[], i;
+                for( i=numero; i>0; i=parseInt(i/16) ) hex.push(i%16);
+                
+
+                for(i=0; i<hex.length; i++){
+                    switch(hex[i]){
+
+                        case 10: 
+                        hex[i] = "A";
+                        break;
+
+                        case 11: 
+                        hex[i] = "B";
+                        break;
+
+                        case 12: 
+                        hex[i] = "C";
+                        break;
+
+                        case 13: 
+                        hex[i] = "D";
+                        break;
+
+                        case 14: 
+                        hex[i] = "E";
+                        break;
+
+                        case 15: 
+                        hex[i] = "F";
+                        break;
+                    }
+                }
+                return hex.reverse().join("");
+            }
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+</script>
+<br> <br> <br> <br>
+<DIV ALIGN = "right";> <a href = "../../aldair.html"> <img src = "https://turismo-en-mi-pais.webnode.mx/_files/200000043-06c4507be3/450/boton_regresar.png" width = "150" heigth = "100"> </a> </right>  </DIV>
+</body>
+</html>

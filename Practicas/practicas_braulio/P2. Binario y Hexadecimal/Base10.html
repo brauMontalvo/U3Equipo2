@@ -1,0 +1,98 @@
+<!DOCTYPE >
+<html>
+    <head>
+        <title>Valor en base 10</title>
+    </head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+        body{
+            font-family: 'Oswald', sans-serif;
+            background-color:rgb(117, 191, 201);
+            text-align: center;
+        }
+    </style>
+    <body>
+        <h1>Programa que calcula el número binario y hexadecimal</h1>
+        <form>
+            <label>Introduce un número </label>
+            <input type="text"   id="num" name="numero" value="">
+            <button type="button" onclick="esBinario(num.value)">Binario</button>
+            <button type="button" onclick="esHexadecimal(num.value)">Hexadecimal</button>
+            <button type="button" onclick="limpiar()">Limpiar Todos</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a id="imagen" href="../../../braulio.html"><img src="https://image.flaticon.com/icons/png/512/122/122641.png" width="50" height="50"></a>
+        </form>
+
+        <script type="text/javascript">
+
+            function esBinario(numero){
+                if(document.getElementById("num").value!=""){
+                    var resultadoBin = Binario(numero);
+                    parrafo = document.createElement("p");
+                    contenido = document.createTextNode("El binario de "+numero+" es "+resultadoBin);  
+                    parrafo.appendChild(contenido);
+                    document.body.appendChild(parrafo);
+                    document.getElementById("num").value="";
+                }
+                else alert("Introduzca un número para realizar la conversión binario");
+            }
+
+            function Binario(numero){
+                var binario = "";
+                while(numero > 0){
+                    binario = numero%2 + binario;
+                    numero = Math.floor(numero/2);
+                }
+                return binario;
+            }
+
+            function esHexadecimal(numero){
+                if(document.getElementById("num").value!=""){
+                    var resultadoHex = Hexadecimal(numero);
+                    parrafo = document.createElement("p");
+                    contenido = document.createTextNode("El hexadecimal de "+numero+" es "+resultadoHex);  
+                    parrafo.appendChild(contenido);
+                    document.body.appendChild(parrafo);
+                    document.getElementById("num").value="";
+                }
+                else alert("Introduzca un número para realizar la conversión a hexadecimal");
+            }
+
+            function Hexadecimal(numero){
+                var hexa=[], i;
+                for(i=numero; i>0; i=parseInt(i/16)){
+                    hexa.push(i%16);
+                }
+
+                for(i=0; i<hexa.length; i++){
+                    switch(hexa[i]){
+                        case 10: hexa[i] = "A";
+                                 break;
+                        case 11: hexa[i] = "B";
+                                 break;
+                        case 12: hexa[i] = "C";
+                                 break;
+                        case 13: hexa[i] = "D";
+                                 break;
+                        case 14: hexa[i] = "E";
+                                 break;
+                        case 15: hexa[i] = "F";
+                                 break;
+                    }
+                }
+                return hexa.reverse().join("");
+            }
+
+            function limpiar(){
+                lista=document.querySelectorAll('p');
+
+                if(lista.length!=0){
+                    i=lista.length-1;  // posiciona en el último párrafo creado
+                    while(i>-1)
+                        lista[i].parentNode.removeChild(lista[i--]);
+                }
+                else alert("No hay párrafos a eliminar");
+            }
+
+        </script>        
+    </body>
+</html>

@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Binario </title>
+
+    <script type="text/javascript">
+
+        function agregarBinario(numero){
+            var bin1 = Bin(numero);
+            parrafo = document.createElement("p");
+            contenido = document.createTextNode("El numero "+numero+" es en binario: "+ bin1);  
+            parrafo.appendChild(contenido);
+            document.body.appendChild(parrafo);
+            document.getElementById("num").value="";
+                                }
+
+        function Bin(numero) {
+            if (numero!=0){
+                var bin = "";
+                while(numero > 0){
+                bin = numero%2 + bin;
+                numero = Math.floor(numero/2); }
+                return bin;
+            }
+            else return "0"; 
+                            
+                                } 
+      
+            function limpiar(){
+        lista=document.querySelectorAll('p');
+
+        if(lista.length!=0){
+            i=lista.length-1;  // posiciona en el último párrafo creado
+            while(i>-1)
+                lista[i].parentNode.removeChild(lista[i--]); }
+        else alert("No hay parrafos a eliminar");
+                             }
+
+            function salir (){
+    if (confirm("¿Quieres cerrar la ventana?")){
+			window.close();
+		}
+    }
+        </script>
+
+</head>
+
+
+<body style = "background-color: rgb(246, 80, 80);">
+    
+<h1 style="text-align: center; color: bisque; font-family:'Times New Roman', Times, serif;"> Escribe el n&uacute;mero que deseas convertir a binario </h1>
+
+<form>
+    <input type="text"   id="num" name="numero" value="">
+    <button type="button" onclick="agregarBinario(numero.value)"> Convertir </button>
+    <button type="button" onclick="limpiar()">Limpiar todo </button>
+    <button type="button" onclick="salir()">Cerrar ventana </button>
+</form>
+
+</body>
+</html>

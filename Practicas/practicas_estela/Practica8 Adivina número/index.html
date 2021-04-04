@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Juego de Adivina n&uacute;mero</title>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+      html {
+        font-family: 'Dela Gothic One', cursive;
+      }
+
+      #fondo {
+        background-image:url(https://www.wallpapertip.com/wmimgs/9-98418_chalkboard-wallpaper-45741-data-src-high-resolution-green.jpg);
+        width: 50%;
+        max-width: 800px;
+        min-width: 480px;
+        margin: 0 auto;
+        color: white;
+        font-size: 125%;
+      }
+
+      .ultimoResultado {
+        color: blanchedalmond;
+        padding: 3px;
+      }
+
+      .adiv{ 
+        padding: 1em;
+        background-color: #fff279;
+        color: black;
+      }
+
+      .ult{
+        padding: 1em;
+        background-color: #d06cff;
+        color: black;
+      }
+
+      .baj{
+        padding: 1em;
+        background-color: #fdbb59;
+        color: black;
+      }
+
+      .error{
+        padding: 10px;
+        background-color: #fa6c6c;
+        color: black;
+      }
+
+      .win{
+        background-color: #56eaf5;
+        color: black;
+      }
+    </style>
+  </head>
+
+  <body id="fondo">
+    <h1>Juego de Adivina n&uacute;mero</h1>
+
+    <p>Se ha generado un valor de entre 1 y 100. Vea si puede adivinarlo en 10 turnos o menos. Le diremos si su estimación fue demasiado alta o demasiado baja.</p>
+
+    <div class="form">
+      <label for="campoAdivina">Ingrese el valor que piensa: </label>
+      <input type="text" id="campoAdivina" class="campoAdivina">
+      <input type="submit" value="Adivina" class="adivinaSubmit">
+    </div>
+
+    <div class="resultParas">
+      <p class="adivinanzas"></p>
+      <p class="ultimoResultado"></p>
+      <p class="bajoOAlto"></p>
+    </div>
+
+    <script>
+      var randomNumber = Math.floor(Math.random() * 100) + 1;
+      const adivinanzas = document.querySelector('.adivinanzas');
+      const ultimoResultado = document.querySelector('.ultimoResultado');
+      const bajoOAlto = document.querySelector('.bajoOAlto');
+      const adivinaSubmit = document.querySelector('.adivinaSubmit');
+      const campoAdivina = document.querySelector('.campoAdivina');
+      var contadorAdivinanzas = 1;
+      var resetButton;
+
+      function checaAdivinanza() {
+        var AdivinanzaUsuario = Number(campoAdivina.value);
+        if (contadorAdivinanzas ==1) {
+          adivinanzas.textContent = 'Adivinanzas Previas: ';
+          adivinanzas.className = "adiv";
+        }
+
+        adivinanzas.textContent += AdivinanzaUsuario + ' ';
+
+        if (AdivinanzaUsuario == randomNumber) {
+          ultimoResultado.textContent = 'Felicidades! Estás en lo correcto!';
+          ultimoResultado.className = "win";
+          bajoOAlto.className = 'null';
+          bajoOAlto.textContent = '';
+          empezarJuego();
+        } else if (contadorAdivinanzas == 10) {
+          ultimoResultado.textContent = '!!!GAME OVER!!!';
+          ultimoResultado.className = "ult";
+          bajoOAlto.className = 'null';
+          bajoOAlto.textContent = '';
+          empezarJuego();
+        } else {
+          ultimoResultado.textContent = 'Error!';
+          ultimoResultado.className = "error";
+          if(AdivinanzaUsuario < randomNumber) {
+            bajoOAlto.textContent = 'El último número es demasiado bajo!' ;
+            bajoOAlto.className = "baj";
+          } else if(AdivinanzaUsuario > randomNumber) {
+            bajoOAlto.textContent = 'El último número es demasiado alto!';
+            bajoOAlto.className = "baj";
+          }
+        }
+
+        contadorAdivinanzas++;
+        campoAdivina.value = '';
+        campoAdivina.focus();
+      }
+
+      adivinaSubmit.addEventListener('click', checaAdivinanza);
+
+      function empezarJuego() {
+        campoAdivina.disabled = true;
+        adivinaSubmit.disabled = true;
+        resetButton = document.createElement('button');
+        resetButton.textContent = 'Iniciar nuevo Juego';
+        document.body.appendChild(resetButton);
+        resetButton.addEventListener('click', resetJuego);
+      }
+
+      function resetJuego() {
+        adivinanzas.className = "null";
+        bajoOAlto.className = "null";
+        contadorAdivinanzas = 1;
+        const resetParas = document.querySelectorAll('.resultParas p');
+        for(var i = 0 ; i < resetParas.length ; i++) {
+          resetParas[i].textContent = '';
+        }
+
+        resetButton.parentNode.removeChild(resetButton);
+        campoAdivina.disabled = false;
+        adivinaSubmit.disabled = false;
+        campoAdivina.value = '';
+        campoAdivina.focus();
+        ultimoResultado.className="null";
+        randomNumber = Math.floor(Math.random() * 100) + 1;
+      }
+    </script>
+    <blockquote>  <a id="imagen" href="../../../estela.html"><img src="https://image.flaticon.com/icons/png/512/122/122641.png" width="70" height="70">
+      <p>REGRESAR AL MENÚ DE PRÁCTICAS</p>  </a>  </blockquote>
+  </body>
+</html>

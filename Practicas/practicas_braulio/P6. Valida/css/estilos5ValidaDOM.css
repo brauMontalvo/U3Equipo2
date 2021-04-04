@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=New+Tegomin&family=Yanone+Kaffeesatz:wght@300;500&display=swap');
+
+  h2 {
+      display: block;
+      font-size: 1.5em;
+      margin-top: 0.83em;
+      margin-bottom: 0.83em;
+      margin-left: 0;
+      margin-right: 0;
+      font-weight: bold;
+      color:rgb(120, 241, 120);
+  }
+
+  body{
+    font-family: 'New Tegomin', serif;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 175%;
+    background-image: url(https://images5.alphacoders.com/572/thumb-1920-572570.jpg);
+    background-repeat: no-repeat;
+    color: white;
+  }
+
+  a{
+    color: turquoise;
+  }
+
+  div{
+    background-color: rgba(68, 70, 202, 0.411);
+  }

@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap');
+/*aspectos generales: bordes y color de fondo de calculadora*/
+.calculadora { width: 600px;text-align: center;
+               background-color: #62b9b600; margin-left: auto; margin-right: auto;}
+
+.calculadora_cntf { width: 600px;text-align: center;
+                    background-color: #62b9b600; margin-left: auto; margin-right: auto;}
+
+/*pantalla de visualización: bordes, posición, color de fondo, estilo letra.*/
+#textoPantalla { width: 500px; height: 30px;border: 2px black solid; text-align: right;
+                 position: relative; left: 30px;  padding: 5px 5px;
+                 background-color: rgb(116, 116, 116); font-family: 'Kiwi Maru', serif;
+                 overflow: hidden; color: white; font-size: large;}
+
+/*botones normales: anchura y margen*/
+.calculadora [type=button] { width: 115px; height: 55px; padding: 0; background-color: rgb(0, 0, 0); color: white;; 
+                             font-family: 'Kiwi Maru', serif; font-size: large;}
+
+.calculadora_cient [type=button] { width: 95px; height: 55px; padding: 0; background-color: rgb(0, 0, 0); color: white;; 
+                                   font-family: 'Kiwi Maru', serif; font-size: large;}
+/*botones especiales*/
+#largo { color:#73efff; width: 120px; }
+#botones { color:#3cf89a;}
+#cambiar { color:#fcf95c;}
+#trig { color:#7086ff;}
+#simb { color:#ff6464;}
+#M { color:#ffb657;}
+
+a{
+    color: khaki;
+}
+
+body{
+    background-image: url(https://www.wallpapertip.com/wmimgs/9-98418_chalkboard-wallpaper-45741-data-src-high-resolution-green.jpg);
+    background-color: rgb(100, 100, 100);
+    background-blend-mode: soft-light;
+    background-repeat: no-repeat;
+}
+

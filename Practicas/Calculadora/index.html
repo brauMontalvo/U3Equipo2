@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora</title>
+    <link rel="stylesheet" type="text/css" href="css/calcula.css" />
+    <script type="text/javascript" src="js/calcula.js"></script>
+</head>
+<body>
+    <div class="calculadora">
+    <form action="#" name="calculadora" id="calculadora">
+    <p id="textoPantalla"></p>
+    <p>
+        <input type="button" id="largo" value="Retr" onclick="retro()"   />
+        <input type="button" id="largo" value="CE" onclick="borradoParcial()"  />
+        <input type="button" id="largo" value="C" onclick="borradoTotal()"  />
+    </p>
+    <p>
+        <input type="button" value="7" onclick="numero('7')" />
+        <input type="button" value="8" onclick="numero('8')" />
+        <input type="button" value="9" onclick="numero('9')" />
+        <input type="button" id="simb" value="/" onclick="operar('/')"  />
+        <input type="button" id="botones" value="Raiz" onclick="raizc()" />
+    </p>
+    <p>
+        <input type="button" value="4" onclick="numero('4')" />
+        <input type="button" value="5" onclick="numero('5')" />
+        <input type="button" value="6" onclick="numero('6')" />
+        <input type="button" id="simb" value="*" onclick="operar('*')" />
+        <input type="button" id="botones" value="%" onclick="porcent()" />
+    </p>
+    <p>
+        <input type="button" value="1" onclick="numero('1')" />
+        <input type="button" value="2" onclick="numero('2')" />
+        <input type="button" value="3" onclick="numero('3')" />
+        <input type="button" id="simb" value="-" onclick="operar('-')" />
+        <input type="button" id="botones" value="1/x" onclick="inve()" />
+    </p>
+    <p>
+        <input type="button" value="0" onclick="numero('0')" />
+        <input type="button" value="+/-" onclick="opuest()" />
+        <input type="button" value="." onclick="numero('.')" />
+        <input type="button" id="simb" value="+" onclick="operar('+')" />
+        <input type="button" id="simb" value="=" onclick="igualar()" />
+    </p>
+    <p>
+        <input type="button" id="M" value="Binario" onclick="binario()" />
+        <input type="button" id="M" value="Hexadecimal" onclick="hexadecimal()" />
+        <input type="button" id="M" value="Octal" onclick="octal()" />
+        <input type="button" id="cambiar" value="C.Cientifica" onclick="window.location.href='cientifica.html'"/>
+    </p>
+    </form>
+    </div><br><br>
+    <blockquote>  <a id="imagen" href="../../index.html"><img src="https://image.flaticon.com/icons/png/512/122/122641.png" width="70" height="70">
+        REGRESAR AL MENU DE PRÁCTICAS</a>  </blockquote>
+</body>
+</html>

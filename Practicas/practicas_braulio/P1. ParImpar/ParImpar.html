@@ -1,0 +1,35 @@
+<!DOCTYPE >
+<head>
+<title>Funciones básicas</title>  
+</head>  
+<body>
+
+  <h1>Programa que verifica si un n&uacute;mero es par</h1>
+  <form >
+     <label >Introduce el numero</label><br>
+     <input type="text" id="numero">
+     <input type="submit" value="Verificar" onclick="esPar()" />
+  </form>
+
+<script type="text/javascript">
+   function esPar(){
+      var numero = document.getElementById('numero').value;
+      //var numero = parseInt(prompt("Dame numero."))
+      var resultado = parImpar(numero);
+      alert("El número "+numero+" es "+resultado);  
+   }
+
+   function parImpar(numero) {
+      if(numero%2 == 0){
+         return "par";
+      }
+      else{
+         return "impar";
+      }
+   }
+</script>
+</body><br><br><br>
+<blockquote>  <a id="imagen" href="../../../braulio.html"><img src="https://image.flaticon.com/icons/png/512/122/122641.png" width="70" height="70">
+   <p>REGRESAR AL MENÚ DE PRÁCTICAS</p>  </a>  </blockquote>
+
+</html>

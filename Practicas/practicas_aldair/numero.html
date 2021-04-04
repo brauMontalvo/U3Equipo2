@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Juego de Adivina n&uacute;mero</title>
+
+    <style>
+      html {
+        font-family: sans-serif;
+      }
+
+      body {
+        background-color: rgb(8, 131, 202);
+        color: cornsilk;
+        width: 50%;
+        max-width: 800px;
+        min-width: 480px;
+        margin: 0 auto;
+      }
+
+      .ultimoResultado {
+        color: blanchedalmond;
+        padding: 3px;
+       
+      }
+
+    
+
+    </style>
+  </head>
+
+  <body>
+    <h1>Juego de Adivina n&uacute;mero</h1>
+
+    <p>Se ha generado un valor de entre 1 y 100. Vea si puede adivinarlo en 10 turnos o menos. Le diremos si su estimación fue demasiado alta o demasiado baja.</p>
+
+    <div class="form">
+      <label for="campoAdivina">Ingrese el valor que piensa: </label>
+      <input type="text" id="campoAdivina" class="campoAdivina">
+      <input type="submit" value="Adivina" class="adivinaSubmit">
+    </div>
+
+    <div class="resultParas">
+      <p class="adivinanzas"></p>
+      <p class="ultimoResultado"></p>
+      <p class="bajoOAlto"></p>
+    </div>
+
+    <script>
+
+      var randomNumber = Math.floor(Math.random() * 100) + 1;
+      const adivinanzas = document.querySelector('.adivinanzas');
+      const ultimoResultado = document.querySelector('.ultimoResultado');
+      const bajoOAlto = document.querySelector('.bajoOAlto');
+      const adivinaSubmit = document.querySelector('.adivinaSubmit');
+      const campoAdivina = document.querySelector('.campoAdivina');
+      const divRes = document.querySelector('.resultParas')
+      var contadorAdivinanzas = 1;
+      var resetButton;
+      divRes.style.display = "none";
+
+      function checaAdivinanza() {
+        divRes.style.display = "";
+        divRes.style.backgroundColor= "blueviolet";
+        divRes.style.color="white";
+        var AdivinanzaUsuario = Number(campoAdivina.value);
+        if (contadorAdivinanzas ==1) {
+          adivinanzas.textContent = 'Adivinanzas Previas: ';
+        }
+
+        adivinanzas.textContent += AdivinanzaUsuario + ' ';
+
+        if (AdivinanzaUsuario == randomNumber) {
+          ultimoResultado.textContent = 'Felicidades! Estás en lo correcto!';
+          ultimoResultado.style.backgroundColor = 'green';
+          bajoOAlto.textContent = '';
+          empezarJuego();
+        } else if (contadorAdivinanzas == 10) {
+          ultimoResultado.textContent = '!!!GAME OVER!!!';
+          bajoOAlto.textContent = '';
+          empezarJuego();
+        } else {
+          ultimoResultado.textContent = 'Error!';
+          ultimoResultado.style.backgroundColor = 'crimson';
+          if(AdivinanzaUsuario < randomNumber) {
+            bajoOAlto.textContent = 'El último número es demasiado bajo!' ;
+          } else if(AdivinanzaUsuario > randomNumber) {
+            bajoOAlto.textContent = 'El último númer es demasiado alto!';
+          }
+        }
+
+        contadorAdivinanzas++;
+        campoAdivina.value = '';
+        campoAdivina.focus();
+      }
+
+      adivinaSubmit.addEventListener('click', checaAdivinanza);
+
+      function empezarJuego() {
+        campoAdivina.disabled = true;
+        adivinaSubmit.disabled = true;
+        resetButton = document.createElement('button');
+        resetButton.textContent = 'Iniciar nuevo Juego';
+        document.body.appendChild(resetButton);
+        resetButton.addEventListener('click', resetJuego);
+      }
+
+      function resetJuego() {
+        divRes.style.display = "none";
+        contadorAdivinanzas = 1;
+        const resetParas = document.querySelectorAll('.resultParas p');
+        for(var i = 0 ; i < resetParas.length ; i++) {
+          resetParas[i].textContent = '';
+        }
+
+        resetButton.parentNode.removeChild(resetButton);
+        campoAdivina.disabled = false;
+        adivinaSubmit.disabled = false;
+        campoAdivina.value = '';
+        campoAdivina.focus();
+        ultimoResultado.style.backgroundColor = 'blanchedalmond';
+        randomNumber = Math.floor(Math.random() * 100) + 1;
+      }
+    </script>
+    <br> <br> <br> <br>
+    <DIV ALIGN = "right";> <a href = "../../aldair.html"> <img src = "https://turismo-en-mi-pais.webnode.mx/_files/200000043-06c4507be3/450/boton_regresar.png" width = "150" heigth = "100"> </a> </right>  </DIV>
+  </body>
+</html>

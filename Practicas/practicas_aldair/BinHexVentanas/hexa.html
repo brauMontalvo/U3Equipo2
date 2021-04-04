@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Hexadecimal </title>
+
+    <script type="text/javascript">
+
+            function agregarHexa(numero){
+                            var hexa = Hex(numero);
+                            parrafo = document.createElement("p");
+                            contenido = document.createTextNode("El numero "+numero+" es en hexadecimal: "+ hexa);  
+                            parrafo.appendChild(contenido);
+                            document.body.appendChild(parrafo);
+                            document.getElementById("num").value="";
+                        }
+
+            function Hex(numero){
+                var hex=[], i;
+                for( i=numero; i>0; i=parseInt(i/16) ) hex.push(i%16);
+                
+
+                for(i=0; i<hex.length; i++){
+                    switch(hex[i]){
+
+                        case 10: 
+                        hex[i] = "A";
+                        break;
+
+                        case 11: 
+                        hex[i] = "B";
+                        break;
+
+                        case 12: 
+                        hex[i] = "C";
+                        break;
+
+                        case 13: 
+                        hex[i] = "D";
+                        break;
+
+                        case 14: 
+                        hex[i] = "E";
+                        break;
+
+                        case 15: 
+                        hex[i] = "F";
+                        break;
+                    }
+                }
+                return hex.reverse().join("");
+            }
+      
+            function limpiar(){
+        lista=document.querySelectorAll('p');
+
+        if(lista.length!=0){
+            i=lista.length-1;  // posiciona en el último párrafo creado
+            while(i>-1)
+                lista[i].parentNode.removeChild(lista[i--]); }
+        else alert("No hay parrafos a eliminar");
+                             }
+
+         function salir (){
+    if (confirm("¿Quieres cerrar la ventana?")){
+			window.close();
+		}
+    }
+
+        </script>
+
+</head>
+
+
+<body style = "background-color: rgb(246, 80, 80);">
+    
+<h1 style="text-align: center; color: bisque; font-family:'Times New Roman', Times, serif;"> Escribe el n&uacute;mero que deseas convertir a hexadecimal </h1>
+
+<form>
+    <input type="text"   id="num" name="numero" value="">
+    <button type="button" onclick="agregarHexa(numero.value)"> Convertir </button>
+    <button type="button" onclick="limpiar()">Limpiar todo </button>
+    <button type="button" onclick="salir()">Cerrar ventana </button>
+</form>
+
+</body>
+</html>
